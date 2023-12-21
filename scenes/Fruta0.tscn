@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://dken1u7ajr5qp"]
+
+[ext_resource type="Texture2D" uid="uid://br0tbstrfisvd" path="res://assets/circle.svg" id="1_280un"]
+[ext_resource type="Script" path="res://scripts/Fruta.gd" id="1_ja88j"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_wcmbv"]
+bounce = 0.25
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_57irg"]
+radius = 9.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_35qql"]
+
+[node name="Fruta0" type="RigidBody2D"]
+collision_mask = 3
+physics_material_override = SubResource("PhysicsMaterial_wcmbv")
+script = ExtResource("1_ja88j")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-4.76837e-07, 8.34465e-07)
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("1_280un")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_57irg")
+
+[node name="BallDetector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BallDetector"]
+shape = SubResource("CircleShape2D_35qql")
+
+[connection signal="body_entered" from="BallDetector" to="." method="_on_ball_detector_body_entered"]

@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bixlrpgyqx5dq"]
+
+[ext_resource type="Script" path="res://scripts/Cursor.gd" id="1_mmtn4"]
+[ext_resource type="Texture2D" uid="uid://br0tbstrfisvd" path="res://assets/circle.svg" id="2_8wtrb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rmqvt"]
+radius = 1.41421
+
+[node name="Cursor" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_mmtn4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(-0.0847632, -0.0847632)
+texture = ExtResource("2_8wtrb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_rmqvt")
